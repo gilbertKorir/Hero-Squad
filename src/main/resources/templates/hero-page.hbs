@@ -1,47 +1,43 @@
 {{#partial "content"}}
     <h1 class="pt-3 text-center">My Heroes</h1><br>
-    <div class="row">
-        <div class="col-md-12 hero">
-        {{#if heroes}}
-            {{#each heroes}}
-<!--                <h3>{{name}}</h3>-->
-                <div class="card text-dark pt-3 mb-3" style="width:23rem;">
-                    <div class = "card-body">
-                        <h3 class="card-title">Name: {{name}}</h3>
-                        <hr>
-                        <p class="card-text">Age: {{age}} years</p>
-                        <p class="card-text">Powers: {{powers}}</p>
-                        <p class="card-text">Weakness: {{weakness}}</p>
-                        <a href="/heroes/{{hero.id}}/delete"><button class="btn btn-danger">Delete this hero</button></a>
-                    </div>
-                </div>
-<!--                <a href="/hero/{{id}}"><button class="btn btn-success">hero-info</button></a><br><br><hr>-->
-            {{/each}}
-        {{else}}
-            <p>No heroes found!</p>
-        {{/if}}
+        <div class="row">
+            <div class="col-md-12 hero">
+                        {{#if heroes}}
+                            {{#each heroes}}
+                                        <div class="card text-dark pt-3 mb-3" style="width:23rem;">
+                                            <div class = "card-body">
+                                                <h3 class="card-title">Name: {{name}}</h3>
+                                                <hr>
+                                                <p class="card-text">Age: {{age}} years</p>
+                                                <p class="card-text">Powers: {{powers}}</p>
+                                                <p class="card-text">Weakness: {{weakness}}</p>
+<!--                                                <a href="/hero/{{hero.id}}/delete"><button class="btn btn-danger">Delete this hero</button></a>-->
+                                            </div>
+                                        </div>
+                            {{/each}}
+            {{else}}
+                <p>No Heroes Available!</p>
+            {{/if}}
+        </div>
     </div>
-<!--    <div class="col-md-6">-->
-<!--        {{#if hero}}-->
-<!--            <div class="card text-dark">-->
-<!--                <div class = "card-body">-->
-<!--                    <h3 class="card-title">{{hero.name}}</h3>-->
-<!--                    <hr>-->
-<!--                    <p class="card-text">Age: {{hero.age}} years</p>-->
-<!--                    <p class="card-text">Powers: {{hero.powers}}</p>-->
-<!--                    <p class="card-text">Weakness: {{hero.weakness}}</p>-->
-<!--                    <a href="/hero/{{hero.id}}/delete"><button class="btn btn-danger">Delete this hero</button></a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        {{/if}}-->
 
-<!--    </div>-->
-<!--    </div>-->
 {{/partial}}
 
+{{#partial "footer"}}
+    {{#if heroes}}
+        <div class="row">
+            <div class="col-md-12 text-center mt-2 mb-2">
+                <a class="text-center pt-2 pb-2" href="/heroes/delete"><button class="btn btn-lg btn-danger"> Delete All Heroes</button></a>
+            </div>
+
+        </div>
+    {{else}}
+    {{/if}}
+{{/partial}}
+
+
+
 {{> layout.hbs}}
-
-
 
 
 
