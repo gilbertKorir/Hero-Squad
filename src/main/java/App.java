@@ -60,7 +60,9 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int idTolook = Integer.parseInt(request.queryParams(":id"));
             Hero lookedHero = Hero.findById(idTolook);
-            model.put("heroes", lookedHero);
+            model.put("hero", lookedHero);
+            ArrayList<Hero> heroes = Hero.getHero();
+            model.put("heroes", heroes);
             return new ModelAndView(model, "hero-page.hbs");
         }, new HandlebarsTemplateEngine());
     }
