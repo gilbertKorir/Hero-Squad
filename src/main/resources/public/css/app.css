@@ -1,0 +1,14 @@
+body{
+
+    background: #0e4269 ;
+    background-position:center;
+    background-size:contain;
+    color:white;
+    font-family:monospace;
+}
+.mynav li a{
+padding: 5px;
+color: white;
+text-align: center;
+
+}
