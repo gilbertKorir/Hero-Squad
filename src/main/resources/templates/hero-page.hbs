@@ -4,6 +4,7 @@
         <div class="col-md-6">
         {{#if heroes}}
             {{#each heroes}}
+                <h3>{{name}}</h3>
                 <a href="/heroes/{{id}}"><button class="btn btn-success">hero-info</button></a>
             {{/each}}
         {{/if}}
