@@ -18,6 +18,10 @@ public class App {
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
         staticFileLocation("/public");
+        //initial array of the heroes
+        Hero firsthero = new Hero("Spider Bee",45,"Fuelling", "walking long distance");
+        Hero secondthero = new Hero("Melvic monker",30,"Flying", "Innactive during raining");
+        Hero thirdthero = new Hero("Trojan",55,"Hearing", "Fears a bomb");
         //start session
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
