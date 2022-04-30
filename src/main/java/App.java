@@ -120,7 +120,13 @@ public class App {
                 }
             }
             Squad newsquad = new Squad(maxsize,name,cause,heroes);
-
+            model.put("heroes", Hero.getHero());
+            return new ModelAndView(model, "form-squad.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/squad",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("squads", Squad.getSquads());
+            return new ModelAndView(model, "squad-page.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }
