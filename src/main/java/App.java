@@ -2,6 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
 import models.Hero;
+import models.Squad;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import static spark.Spark.*;
@@ -77,7 +78,76 @@ public class App {
             ArrayList<Hero> heroes = Hero.getHero();
             model.put("heroes", heroes);
             return new ModelAndView(model,"hero-page.hbs");
-
         },new HandlebarsTemplateEngine());
+
+        // Generate squad data and routings
+        get("/squads/delete",(request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            Squad.clearAll();
+            ArrayList<Hero> heroes = Hero.getHero();
+            for (int i=0; i<heroes.size(); i++){
+                heroes.get(i).updatehero(false);
+            }
+            model.put("squads",Squad.getSquads());
+            return modelAndView(model,"squad-page.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/create/squad",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            ArrayList<Hero> heroes = Hero.getHero();
+            ArrayList<Hero> hero_list = new ArrayList<>();
+            for (int i=0; i<heroes.size();i++){
+                if(heroes.get(i).isOccupied()==false){
+                    hero_list.add(heroes.get(i));
+                }
+            }
+            model.put("heroes", Hero.getHero());
+            return new ModelAndView(model, "form-squad.hbs");
+        }, new HandlebarsTemplateEngine());
+        post("squads/new",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String name = request.queryParams("name");
+            int maxsize = Integer.parseInt(request.queryParams("size"));
+            String cause = request.queryParams("cause");
+            ArrayList<Hero> heroes = new ArrayList<>();
+            if(request.queryParamsValues("heroes")!=null){
+                String[] heroesList = request.queryParamsValues("heroes");
+                for(int i=0; i<heroesList.length;i++){
+                    Hero addhero =Hero.findById(Integer.parseInt(heroesList[i]));
+                    if(heroes.size()<maxsize){
+                        addhero.updatehero(true);
+                        heroes.add(addhero);
+                    }
+                }
+            }
+            Squad newsquad = new Squad(maxsize,name,cause,heroes);
+
+        }, new HandlebarsTemplateEngine());
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

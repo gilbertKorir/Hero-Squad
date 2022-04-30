@@ -53,11 +53,13 @@ public class Hero {
     public String getPowers() {
         return powers;
     }
-
     public String getWeakness() {
         return weakness;
     }
     public boolean isOccupied() {
         return occupied;
+    }
+    public void updatehero(boolean occupied){
+        this.occupied=occupied;
     }
 }
