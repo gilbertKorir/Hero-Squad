@@ -7,6 +7,8 @@
                 <h3>{{name}}</h3>
                 <a href="/heroes/{{id}}"><button class="btn btn-success">hero-info</button></a><br><br><hr>
             {{/each}}
+        {{else}}
+            <p>No heroes found!</p>
         {{/if}}
     </div>
     <div class="col-md-6">
