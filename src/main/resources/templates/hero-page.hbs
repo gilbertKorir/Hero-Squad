@@ -1,10 +1,35 @@
 {{#partial "content"}}
     <h1>My Heroes</h1><br>
     <div class="row">
+        <div class="col-md-6">
         {{#if heroes}}
             {{#each heroes}}
                 <a href="/heroes/{{id}}"><button class="btn btn-success">hero-info</button></a>
             {{/each}}
         {{/if}}
     </div>
+    <div class="col-md-6">
+        {{#if hero}}
+            <div class="card text-dark">
+                <div classcard-body>
+                    <h3 class="card-title">{{hero.name}}</h3>
+                    <hr>
+                    <p class="card-text">Age: {{hero.age}} years</p>
+                    <p class="card-text">Powers: {{hero.powers}}</p>
+                    <p class="card-text">Weakness: {{hero.weakness}}</p>
+                    <a href="/hero/{{hero.id}}/delete"><button class="btn btn-danger">Delete this hero</button></a>
+                </div>
+            </div>
+        {{/if}}
+
+    </div>
+    </div>
 {{/partial}}
+
+
+
+
+
+
+
+
