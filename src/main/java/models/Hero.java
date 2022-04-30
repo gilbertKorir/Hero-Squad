@@ -22,6 +22,9 @@ public class Hero {
     public static ArrayList<Hero> getHero(){
         return heroes;
     }
+    public void deleteHero(){
+        heroes.remove(id-1);
+    }
     public static Hero findById(int id){
         try {
             return heroes.get(id-1);

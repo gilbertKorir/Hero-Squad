@@ -65,5 +65,19 @@ public class App {
             model.put("heroes", heroes);
             return new ModelAndView(model, "hero-page.hbs");
         }, new HandlebarsTemplateEngine());
+        //delete hero
+        get("/hero/:id/delete",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfHeroToDelete=Integer.parseInt(request.params(":id"));
+            Hero foundHero=Hero.findById(idOfHeroToDelete);
+            for (int i=idOfHeroToDelete;i<Hero.getHero().size();i++){
+                Hero.getHero().get(i).setId(Hero.getHero().get(i).getId()-1);
+            }
+            foundHero.deleteHero();
+            ArrayList<Hero> heroes = Hero.getHero();
+            model.put("heroes", heroes);
+            return new ModelAndView(model,"hero-page.hbs");
+
+        },new HandlebarsTemplateEngine());
     }
 }
