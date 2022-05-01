@@ -10,6 +10,18 @@
                             <hr>
                             <p class="card-text">Max size: {{maxsize}}</p>
                             <p class="card-text">Cause: {{cause}}</p>
+                            {{#each squads.heroes}}
+                                <hr>
+                                <li class="card-text">{{name}}</li><br>
+                                <hr>
+                                <p class="card-text">Age : {{age}}</p><br>
+                                <p class="card-text">Special Powers : {{powers}}</p><br>
+                                <p class="card-text">Weakness: {{weakness}}</p><br>
+                                <p class="card-text">Defence : {{defence}}</p><br>
+                                <p class="card-text">Attack : {{attack}}</p><br>
+
+
+                            {{/each}}
                         </div>
 <!--                        <a href="/squads/{{id}}"><button class="btn btn-info btn-md">Details</button></a><br><br><hr>-->
                 {{/each}}
