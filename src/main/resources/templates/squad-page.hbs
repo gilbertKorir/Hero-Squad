@@ -1,15 +1,22 @@
 {{#partial "content"}}
-    <h1 class="text-center pt-4 pb-5">my Squads</h1>
+    <h1 class="text-center pt-4 pb-5">My Squads</h1>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 hero">
             {{#if squads}}
                 {{#each squads}}
-                    <h4>{{name}}</h4>
+                    <div class="card text-dark pt-3 mb-3" style="width:23rem;">
+                        <div class = "card-body">
+                            <h3 class="card-title">Name: {{name}}</h3>
+                            <hr>
+                            <p class="card-text">Age: {{maxsize}} years</p>
+                            <p class="card-text">Powers: {{cause}}</p>
+                        </div>
                 {{/each}}
             {{/if}}
 {{else}}
     <h3>Just create at least one squad</h3>
         </div>
+    </div>
     </div>
 {{/partial}}
 
