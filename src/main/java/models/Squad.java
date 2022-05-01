@@ -10,11 +10,11 @@ public class Squad {
     private ArrayList<Hero> heroes;
     public static ArrayList<Squad> squads = new ArrayList<Squad>();
 
-    public Squad(int maxsize, String name, String cause, ArrayList<Hero> heroes) {
+    public Squad(String name, int maxsize, String cause) {
         this.maxsize = maxsize;
         this.name = name;
         this.cause = cause;
-        this.heroes = heroes;
+//        this.heroes = heroes;
         squads.add(this);
         this.id = squads.size();
     }

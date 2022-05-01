@@ -1,0 +1,14 @@
+{{#partial "content"}}
+    <h1 class="text-center">my Squads</h1>
+    <div class="row">
+        <div class="col-md-12">
+            {{#if squads}}
+                {{#each squads}}
+                    <h4>{{name}}</h4>
+                {{/each}}
+            {{/if}}
+{{else}}
+    <h3>Just create at least one squad</h3>
+        </div>
+    </div>
+{{/partial}}
