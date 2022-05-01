@@ -14,6 +14,7 @@ This project Hero Squad App, allows you to recruit well-balanced team of superhe
 ## Technologies Used
 
 * Java - openjdk 11.4 
+* Junit 5
 * Gradle - version 7.0 
 * Spark Framework
 * CSS (Bootstrap)
