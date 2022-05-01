@@ -11,23 +11,14 @@
                             <hr>
                             <p class="card-text">Max size: {{maxsize}}</p>
                             <p class="card-text">Cause: {{cause}}</p>
-                            {{#each squads.heroes}}
-                                <hr>
-                                <li class="card-text">{{name}}</li><br>
-                                <hr>
-                                <p class="card-text">Age : {{age}}</p><br>
-                                <p class="card-text">Special Powers : {{powers}}</p><br>
-                                <p class="card-text">Weakness: {{weakness}}</p><br>
-                                <p class="card-text">Defence : {{defence}}</p><br>
-                                <p class="card-text">Attack : {{attack}}</p><br>
-                                <a href="/squads/{{id}}"><button class="btn btn-info btn-md">Delete</button></a><br><br><hr>
-                            {{/each}}
+                            <a href="/squads/{{id}}"><button class="btn btn-info btn-md">Delete</button></a><br><br><hr>
                         </div>
+                    </div>
                 {{/each}}
-            {{/if}}
+
 {{else}}
     <h3>Just create at least one squad</h3>
-        </div>
+            {{/if}}
     </div>
     </div>
     <div class="row">
@@ -49,7 +40,7 @@
 {{/partial}}
 {{#partial "footer"}}
     {{#if squads}}
-        <a href="/squads/delete"><button class="btn btn-lg btn-danger"> Delete All Squads</button></a>
+        <a class="text-center pt-2 pb-2" href="/squads/delete"><button class="btn btn-lg btn-danger"> Delete All Squads</button></a>
     {{else}}
     {{/if}}
 {{/partial}}

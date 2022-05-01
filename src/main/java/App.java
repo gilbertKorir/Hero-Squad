@@ -143,7 +143,7 @@ public class App {
         //delete the squad
         get("/squad/:id/delete", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            int idSquadtodelete = Integer.parseInt(request.queryParams(":id"));
+            int idSquadtodelete = Integer.parseInt(request.params(":id"));
             Squad lookedsquad = Squad.findById(idSquadtodelete);
             ArrayList<Hero> heroes = lookedsquad.getHero();
 
