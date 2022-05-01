@@ -23,6 +23,7 @@ public class App {
         Hero firsthero = new Hero("Spider Bee",45,"Fuelling", "walking long distance");
         Hero secondthero = new Hero("Melvic monker",30,"Flying", "Innactive during raining");
         Hero thirdthero = new Hero("Trojan",55,"Hearing", "Fears a bomb");
+        Squad squad1 = new Squad("king",5,"sexism");
         //start session
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
