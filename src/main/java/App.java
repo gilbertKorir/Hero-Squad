@@ -23,7 +23,7 @@ public class App {
         Hero firsthero = new Hero("Spider Bee",45,"Fuelling", "walking long distance");
         Hero secondthero = new Hero("Melvic monker",30,"Flying", "Innactive during raining");
         Hero thirdthero = new Hero("Trojan",55,"Hearing", "Fears a bomb");
-        Squad squad1 = new Squad("king",5,"sexism");
+//        Squad squad1 = new Squad("king",5,"sexism");
         //start session
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
@@ -90,37 +90,39 @@ public class App {
                 heroes.get(i).updatehero(false);
             }
             model.put("squads",Squad.getSquads());
-            return modelAndView(model,"squad-page.hbs");
+            return new ModelAndView(model,"squad-page.hbs");
         }, new HandlebarsTemplateEngine());
+
         get("/create/squad",(request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
-            return new ModelAndView(model, "form-squad.hbs");
+            Map<String, Object> model = new HashMap<>();
+            ArrayList<Hero> heroes = Hero.getHero();
+            ArrayList<Hero> heroList = new ArrayList<>();
+            for (int i=0; i<heroes.size();i++){
+                if(heroes.get(i).isOccupied()==false){
+                    heroList.add(heroes.get(i));
+                }
+            }
+            model.put("heroes", Hero.getHero());
+        return new ModelAndView(model, "form-squad.hbs");
         }, new HandlebarsTemplateEngine());
-//            ArrayList<Hero> heroes = Hero.getHero();
-//            ArrayList<Hero> hero_list = new ArrayList<>();
-//            for (int i=0; i<heroes.size();i++){
-//                if(heroes.get(i).isOccupied()==false){
-//                    hero_list.add(heroes.get(i));
-//                }
-//            }
-//            model.put("heroes", Hero.getHero());
+
         post("squads/new",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String name = request.queryParams("name");
             int maxsize = Integer.parseInt(request.queryParams("size"));
             String cause = request.queryParams("cause");
-//            ArrayList<Hero> heroes = new ArrayList<>();
-//            if(request.queryParamsValues("heroes")!=null){
-//                String[] heroesList = request.queryParamsValues("heroes");
-//                for(int i=0; i<heroesList.length;i++){
-//                    Hero addhero =Hero.findById(Integer.parseInt(heroesList[i]));
-//                    if(heroes.size()<maxsize){
-//                        addhero.updatehero(true);
-//                        heroes.add(addhero);
-//                    }
-//                }
-//            }
-            Squad newsquad = new Squad(name,maxsize,cause);
+            ArrayList<Hero> heroes = new ArrayList<>();
+            if(request.queryParamsValues("heroes")!=null){
+                String[] heroesList = request.queryParamsValues("heroes");
+                for(int i=0; i<heroesList.length;i++){
+                    Hero addhero =Hero.findById(Integer.parseInt(heroesList[i]));
+                    if(heroes.size()<maxsize){
+                        addhero.updatehero(true);
+                        heroes.add(addhero);
+                    }
+                }
+            }
+            Squad newsquad = new Squad(name,maxsize,cause,heroes);
             model.put("squads", Squad.getSquads());
             return new ModelAndView(model, "form-squad.hbs");
         }, new HandlebarsTemplateEngine());
