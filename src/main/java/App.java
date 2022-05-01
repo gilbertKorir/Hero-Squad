@@ -140,6 +140,25 @@ public class App {
             model.put("squads", squads);
             return new ModelAndView(model, "squad-page.hbs");
         }, new HandlebarsTemplateEngine());
+        //delete the squad
+        get("/squad/:id/delete", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idSquadtodelete = Integer.parseInt(request.queryParams(":id"));
+            Squad lookedsquad = Squad.findById(idSquadtodelete);
+            ArrayList<Hero> heroes = lookedsquad.getHero();
+
+            for (int i=0; i<heroes.size(); i++){
+                heroes.get(i).updatehero(false);
+            }
+            for (int i=idSquadtodelete;i<Squad.getSquads().size();i++){
+                Squad.getSquads().get(i).setId(Squad.getSquads().get(i).getId()-1);
+            }
+            lookedsquad.deleteSquad();
+
+            ArrayList<Squad> squads = Squad.getSquads();
+            model.put("squads", squads);
+            return new ModelAndView(model,"squad-page.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
 
