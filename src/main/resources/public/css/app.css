@@ -1,10 +1,9 @@
 body{
 
-    background: #04214d;
-    background-position:center;
-    background-size:contain;
-    color:white;
-    font-family:monospace;
+    background: url('/images/sp3.jpeg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    color: white;
 }
 .mynav li a{
 padding: 8px;
