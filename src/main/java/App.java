@@ -56,11 +56,11 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             ArrayList<Hero> heroes = Hero.getHero();
             model.put("heroes",heroes);
-            return modelAndView(model, "hero-page.hbs");
+            return new ModelAndView(model, "hero-page.hbs");
         }, new HandlebarsTemplateEngine());
         get("/heroes/:id", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            int idTolook = Integer.parseInt(request.queryParams(":id"));
+            int idTolook = Integer.parseInt(request.params(":id"));
             Hero lookedHero = Hero.findById(idTolook);
             model.put("hero", lookedHero);
             ArrayList<Hero> heroes = Hero.getHero();
@@ -133,7 +133,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
         get("/squads/:id",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            int idtolook =  Integer.parseInt(request.queryParams(":id"));
+            int idtolook =  Integer.parseInt(request.params(":id"));
             Squad lookedsquad = Squad.findById(idtolook);
             model.put("squad", lookedsquad);
             ArrayList<Squad> squads = Squad.getSquads();
