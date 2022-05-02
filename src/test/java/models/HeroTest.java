@@ -27,6 +27,21 @@ class HeroTest {
         assertTrue(Hero.getHero().contains(hero));
         assertTrue(Hero.getHero().contains(firsthero));
     }
+
+    @Test
+    public void check_name_true(){
+        Hero hero=setUpNewHero();
+        Hero otherHero=new Hero("Trojan",23,"fuelling","innactive during raining");
+        assertEquals(true,otherHero instanceof Hero);
+
+    }
+    public void check_age_true(){
+        Hero hero=setUpNewHero();
+        Hero otherHero=new Hero("Trojan",23,"fuelling","innactive during raining");
+        assertEquals(23,otherHero.getAge());
+
+    }
+
     @Test
     public void deleteAll() {
         Hero hero=setUpNewHero();
