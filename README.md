@@ -6,7 +6,7 @@ By: [Gilbert Korir](https://github.com/gilbertKorir)
 
 This project Hero Squad App, allows you to recruit well-balanced team of superheroes.Each hero can only be assigned to one squad at a time.
 
-<p align="center"><img src="https://github.com/gilbertKorir/Hero-Squad/blob/master/src/main/resources/public/images/bg.png"
+<p align="center"><img src="https://i.postimg.cc/YS0Jk6vF/ghd.png"
  height="300px" width = "70%"> </p>
 
 ## Requirements
