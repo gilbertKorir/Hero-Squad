@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>hero_squad</artifactId>
+    <artifactId>hero_quad</artifactId>
     <version>1.0</version>
 
     <dependencies>
@@ -13,12 +13,12 @@
         <dependency>
             <groupId>com.sparkjava</groupId>
             <artifactId>spark-core</artifactId>
-            <version>2.9.3</version>
+            <version>2.6.0</version>
         </dependency>
         <dependency>
             <groupId>com.sparkjava</groupId>
             <artifactId>spark-template-handlebars</artifactId>
-            <version>2.7.1</version>
+            <version>2.5.5</version>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -36,6 +36,11 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>3.3.0</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -50,6 +55,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
+<!--                <version>2.2</version>-->
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -59,6 +65,9 @@
                     </execution>
                 </executions>
                 <configuration>
+<!--                    <descriptors>-->
+<!--                        <descriptor>src/assembly/src.xml</descriptor>-->
+<!--                    </descriptors>-->
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
@@ -77,13 +86,12 @@
                 <configuration>
                     <jdkVersion>1.8</jdkVersion>
                     <!-- Change this to YOUR application name! -->
-                    <appName>hero-squad</appName>
+                    <appName>mysquad-hero</appName>
                     <processTypes>
-                        <web>java -jar target/hero_squad-1.0-jar-with-dependencies.jar</web>
+                        <web>java -jar target/hero_quad-1.0-jar-with-dependencies.jar</web>
                     </processTypes>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>

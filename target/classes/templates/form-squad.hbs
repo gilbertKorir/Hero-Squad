@@ -1,0 +1,30 @@
+{{#partial "content"}}
+    <form action="/squads/new" method="post" class="pt-5 text-center p-4 heroform">
+        <h4>Create a new Squad..</h4>
+        <hr>
+        <label for="name">Name</label> &nbsp;&nbsp; :
+        <input type="text" name="name" id="name"><br><br>
+        <label for="age">Max Size</label>&nbsp;&nbsp;
+        <input type="number" name="size" id="size"><br><br>
+        <label for="age">Cause</label>&nbsp;&nbsp;
+        <input type="text" name="cause" id="cause"><br><br>
+        <label for="heroes">Available Heroes  <br> <p>Create heroes or
+            delete some squads to free up heroes</p></label><br><br>
+        {{#if heroes}}
+            {{#each heroes}}
+                {{#if occupied}}
+
+                {{else}}
+                    <h3><input type="checkbox" name="heroes" id={{id}} value={{id}}> {{name}}</h3>
+                {{/if}}
+
+            {{/each}}
+        {{else}}
+            <h4>Create more heroes</h4>
+
+        {{/if}}
+        <button type="submit" class="btn btn-success btn-lg">Create</button>
+    </form>
+{{/partial}}
+
+{{> layout.hbs}}

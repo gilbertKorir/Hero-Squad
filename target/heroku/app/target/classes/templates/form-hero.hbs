@@ -1,0 +1,17 @@
+{{#partial "content"}}
+<form action="/heroes/new" method="post" class="pt-5 text-center p-4 heroform">
+    <h4>Create a new Hero...</h4>
+    <hr>
+    <label for="name">Name</label> &nbsp;&nbsp; :
+    <input type="text" name="name" id="name"><br><br>
+    <label for="age">Age</label>&nbsp;&nbsp;&nbsp; &nbsp;:
+    <input type="number" name="age" placeholder="minimum age 10" id="age" min="10"><br><br>
+    <label for="powers">Powers</label> &nbsp;&nbsp;:
+    <input type="text" name="powers" id="powers"><br><br>
+    <label for="weakness">Weakness</label>:
+    <input type="text" name="weakness" id="weakness"><br><br>
+
+    <button type="submit" class="btn btn-primary">create !</button>
+</form>
+{{/partial}}
+{{>layout.hbs}}

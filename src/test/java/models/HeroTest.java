@@ -62,5 +62,5 @@ class HeroTest {
         assertEquals(formerID,hero.getId());
         assertNotEquals(formerOccupied,hero.isOccupied());
     }
-    
+
 }
