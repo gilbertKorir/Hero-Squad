@@ -25,10 +25,10 @@ This project Hero Squad App, allows you to recruit well-balanced team of superhe
 
 ## Dependencies
 
-Spark java framework
-maven
-gradle
-JUnit 5
+* Spark java framework
+* maven
+* gradle
+* JUnit 5
 
 ## Setup Installations Requirements
 * To run the application, in your terminal:
