@@ -23,6 +23,12 @@ This project Hero Squad App, allows you to recruit well-balanced team of superhe
 * CSS (Bootstrap)
 * Handlebars Templates
 
+## Dependencies
+
+* Spark java framework
+* maven
+* gradle
+* JUnit 5
 
 ## Setup Installations Requirements
 * To run the application, in your terminal:
@@ -32,11 +38,10 @@ This project Hero Squad App, allows you to recruit well-balanced team of superhe
     3. Rebuild the Project Using Intellij IDEA (simply because it was build under IntelliJ)
     4. Run the App class using the green triangular icon on your top right, or ctrl+shift+10.
     5. Navigate to `http://localhost:4567` in your browser and have fun.
+    6. Offline the app runs on { localhost:4567 }
 
 
 ### Development
-
-Want to contribute? Great!
 
 To fix a bug or enhance an existing module, follow these steps:
 
@@ -48,11 +53,10 @@ To fix a bug or enhance an existing module, follow these steps:
 - Push to the branch (`git push origin ft-develop`)
 - Create a Pull Request.
 
+live link: https://mysquad-hero.herokuapp.com/
+
 ## Known Bugs
-
-If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue [here](https://github.com/yomZsamora/Hero-Squad/issues/new) by including your search query and the expected result.
-
-If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/yomZsamora/Hero-Squad/issues/new). Please include sample queries and their corresponding results.
+No known bugs.
 
 ### License
 
